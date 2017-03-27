@@ -21,7 +21,7 @@ allprojects {
 In your app level build.gradle :
 ```java
 dependencies {
-    compile 'com.github.pchmn:RxSocialAuth:2.0.1-beta'
+    compile 'com.github.pchmn:FormValidator:1.0.0'
 }      
 ```
 
