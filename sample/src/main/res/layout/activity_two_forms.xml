@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pchmn.sample.formvalidator.TwoFormsActivity">
+
+    <!-- form1 -->
+    <com.pchmn.formvalidator.Form
+        android:id="@+id/form1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- email -->
+        <com.pchmn.formvalidator.InputValidator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"/>
+
+        </com.pchmn.formvalidator.InputValidator>
+
+        <!-- password -->
+        <com.pchmn.formvalidator.InputValidator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:required="true"
+            app:minLength="6">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Password (6 char. min) *" />
+
+        </com.pchmn.formvalidator.InputValidator>
+
+        <!-- submit form -->
+        <Button
+            android:id="@+id/validate_form1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Validate form1"/>
+
+    </com.pchmn.formvalidator.Form>
+    <!-- /form1 -->
+
+    <!-- form2 -->
+    <com.pchmn.formvalidator.Form
+        android:id="@+id/form2"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/form1"
+        android:padding="16dp">
+
+        <!-- phone number -->
+        <com.pchmn.formvalidator.InputValidator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:required="true">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:hint="Phone number *"/>
+
+        </com.pchmn.formvalidator.InputValidator>
+
+        <!-- password -->
+        <com.pchmn.formvalidator.InputValidator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:minValue="12">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Age (12 min)" />
+
+        </com.pchmn.formvalidator.InputValidator>
+
+        <!-- submit form -->
+        <Button
+            android:id="@+id/validate_form2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Validate form2"/>
+
+    </com.pchmn.formvalidator.Form>
+    <!-- /form2 -->
+
+</RelativeLayout>

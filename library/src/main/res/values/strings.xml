@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FormValidator</string>
+
+    <string name="error_invalid_email">This email is not valid</string>
+    <string name="error_invalid_ip">This IP address is not valid</string>
+    <string name="error_invalid_phone_number">This phone number is not valid</string>
+    <string name="error_invalid_url">This url is not valid</string>
+    <string name="error_invalid_number">This is not a number</string>
+
+    <string name="error_min_length">This field must contain %1$d characters minimum</string>
+    <string name="error_max_length">This field must contain %1$d characters maximum</string>
+    <string name="error_range_length">This field must contain between %1$d and %2$d characters</string>
+
+    <string name="error_min_value">This field must be greater than %1$d</string>
+    <string name="error_max_value">This field must be less than %1$d</string>
+    <string name="error_range_value">This field must be between %1$d and %2$d</string>
+
+    <string name="error_invalid_field">This field is not valid</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_fields_mismatch">The two fields mismatch</string>
+</resources>

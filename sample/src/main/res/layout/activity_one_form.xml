@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pchmn.sample.formvalidator.OneFormActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!-- form -->
+        <LinearLayout
+            android:id="@+id/form"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <!-- custom required message -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:requiredMessage="Please enter a value">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Custom required message *"/>
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- email -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="Email"/>
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- phone number -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:required="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:hint="Phone number *"/>
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- number -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Number"/>
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- regex -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:regex="^[0-9]{4}$"
+                app:errorMessage="4 digits only">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Regex 4 digits (custom error msg)"/>
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- password -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:required="true">
+
+                <EditText
+                    android:id="@+id/password1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Password *" />
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- confirm password -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:required="true"
+                app:identicalAs="@+id/password1">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:hint="Confirm password *"/>
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- 6 characters min -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:minLength="6">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="At least 6 characters long" />
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- between 2 and 8 characters -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:minLength="2"
+                app:maxLength="8">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Between 2 and 8 characters" />
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- between 15 and 50 -->
+            <com.pchmn.formvalidator.InputValidator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:minValue="15"
+                app:maxValue="50">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Between 15 and 50 (value)" />
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- between 15 and 50 -->
+            <com.pchmn.formvalidator.InputValidator
+                android:id="@+id/custom_validator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:required="true">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Custom validator (== 'ok man') *" />
+
+            </com.pchmn.formvalidator.InputValidator>
+
+            <!-- submit button -->
+            <Button
+                android:id="@+id/validate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="validate"/>
+
+        </LinearLayout>
+        <!-- /form -->
+
+    </android.support.v4.widget.NestedScrollView>
+
+</RelativeLayout>

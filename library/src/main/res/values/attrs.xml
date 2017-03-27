@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InputValidator">
+        <attr name="required" format="boolean" />
+        <attr name="validator" format="enum">
+            <enum name="isEmail" value="0"/>
+            <enum name="isPhoneNumber" value="1"/>
+            <enum name="isNumeric" value="2"/>
+            <enum name="isUrl" value="3"/>
+            <enum name="isIP" value="4"/>
+        </attr>
+        <attr name="minLength" format="integer" />
+        <attr name="maxLength" format="integer" />
+        <attr name="minValue" format="integer" />
+        <attr name="maxValue" format="integer" />
+        <attr name="regex" format="string" />
+        <attr name="identicalAs" format="reference" />
+        <attr name="errorMessage" format="string" />
+        <attr name="requiredMessage" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="Form">
+        <attr name="showErrors" format="boolean" />
+    </declare-styleable>
+</resources>

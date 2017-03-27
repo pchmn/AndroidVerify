@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.pchmn.sample.formvalidator.MainActivity">
+
+    <Button
+        android:id="@+id/one_form_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="One form activity"/>
+
+    <Button
+        android:id="@+id/two_forms_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Two forms activity"/>
+
+    <Button
+        android:id="@+id/form_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Form in fragment"/>
+
+    <Button
+        android:id="@+id/java_form_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Java form activity"/>
+
+</LinearLayout>

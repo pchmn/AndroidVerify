@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- form -->
+    <LinearLayout
+        android:id="@+id/form1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- email -->
+        <com.pchmn.formvalidator.InputValidator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"/>
+
+        </com.pchmn.formvalidator.InputValidator>
+
+        <!-- password -->
+        <com.pchmn.formvalidator.InputValidator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:required="true"
+            app:minLength="6">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Password (6 char. min) *" />
+
+        </com.pchmn.formvalidator.InputValidator>
+
+        <!-- submit form -->
+        <Button
+            android:id="@+id/validate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Validate"/>
+
+    </LinearLayout>
+    <!-- /form -->
+
+</RelativeLayout>
