@@ -1,4 +1,4 @@
-package com.pchmn.formvalidator.validators;
+package com.pchmn.formvalidator.validator;
 
 
 import android.util.Patterns;

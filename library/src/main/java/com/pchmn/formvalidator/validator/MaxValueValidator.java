@@ -1,4 +1,4 @@
-package com.pchmn.formvalidator.validators;
+package com.pchmn.formvalidator.validator;
 
 
 import com.pchmn.formvalidator.App;
@@ -10,7 +10,7 @@ public class MaxValueValidator extends AbstractValidator {
 
     public MaxValueValidator(int value) {
         mMaxValue = value;
-        mErrorMessage = App.getContext().getString(R.string.error_invalid_number);
+        mErrorMessage = App.getContext().getString(R.string.error_max_value, mMaxValue);
     }
 
     @Override
@@ -21,6 +21,7 @@ public class MaxValueValidator extends AbstractValidator {
             return d <= mMaxValue;
         }
         catch(NumberFormatException nfe) {
+            mErrorMessage = App.getContext().getString(R.string.error_invalid_number);
             return false;
         }
     }

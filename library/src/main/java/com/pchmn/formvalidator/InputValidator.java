@@ -9,22 +9,22 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import com.pchmn.formvalidator.validators.AbstractValidator;
-import com.pchmn.formvalidator.validators.EmailValidator;
-import com.pchmn.formvalidator.validators.IPValidator;
-import com.pchmn.formvalidator.validators.IdenticalValidator;
-import com.pchmn.formvalidator.validators.MaxLengthValidator;
-import com.pchmn.formvalidator.validators.MaxValueValidator;
-import com.pchmn.formvalidator.validators.MinLengthValidator;
-import com.pchmn.formvalidator.validators.MinValueValidator;
-import com.pchmn.formvalidator.validators.NumericValidator;
-import com.pchmn.formvalidator.validators.PhoneNumberValidator;
-import com.pchmn.formvalidator.validators.RangeLengthValidator;
-import com.pchmn.formvalidator.validators.RangeValueValidator;
-import com.pchmn.formvalidator.validators.RegexValidator;
-import com.pchmn.formvalidator.validators.RequiredValidator;
-import com.pchmn.formvalidator.validators.UrlValidator;
-import com.pchmn.formvalidator.validators.ValidateValidator;
+import com.pchmn.formvalidator.validator.AbstractValidator;
+import com.pchmn.formvalidator.validator.EmailValidator;
+import com.pchmn.formvalidator.validator.IPValidator;
+import com.pchmn.formvalidator.validator.IdenticalValidator;
+import com.pchmn.formvalidator.validator.MaxLengthValidator;
+import com.pchmn.formvalidator.validator.MaxValueValidator;
+import com.pchmn.formvalidator.validator.MinLengthValidator;
+import com.pchmn.formvalidator.validator.MinValueValidator;
+import com.pchmn.formvalidator.validator.NumericValidator;
+import com.pchmn.formvalidator.validator.PhoneNumberValidator;
+import com.pchmn.formvalidator.validator.RangeLengthValidator;
+import com.pchmn.formvalidator.validator.RangeValueValidator;
+import com.pchmn.formvalidator.validator.RegexValidator;
+import com.pchmn.formvalidator.validator.RequiredValidator;
+import com.pchmn.formvalidator.validator.UrlValidator;
+import com.pchmn.formvalidator.validator.ValidateValidator;
 
 public class InputValidator extends RelativeLayout {
 
@@ -50,6 +50,8 @@ public class InputValidator extends RelativeLayout {
     private String mRegex;
     private int mOtherEditTextId = NONE;
     private String mErrorMessage, mRequiredMessage;
+    // build
+    private boolean mBuilt = false;
 
     public InputValidator(Context context) {
         super(context);
@@ -125,20 +127,7 @@ public class InputValidator extends RelativeLayout {
                 e.printStackTrace();
             }
         mEditText = (EditText) getChildAt(0);
-        // auto validator
-        if(mEditText != null) {
-            switch (mEditText.getInputType()) {
-                case InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS:
-                    mValidatorNumber = IS_EMAIL;
-                    break;
-                case InputType.TYPE_CLASS_PHONE:
-                    mValidatorNumber = IS_PHONE_NUMBER;
-                    break;
-                case InputType.TYPE_CLASS_NUMBER:
-                    mValidatorNumber = IS_NUMERIC;
-                    break;
-            }
-        }
+
         // build validator
         buildValidator();
     }
@@ -147,6 +136,9 @@ public class InputValidator extends RelativeLayout {
      * Build the validator according to the attributes
      */
     private void buildValidator() {
+        // auto validator
+        autoValidator();
+
         // get views
         getOtherEditText();
 
@@ -156,7 +148,7 @@ public class InputValidator extends RelativeLayout {
         // length
         if(mMaxLength != NONE && mMinLength != NONE) mValidator = new RangeLengthValidator(mMinLength, mMaxLength);
         else if(mMinLength != NONE) mValidator = new MinLengthValidator(mMinLength);
-        else if(mMaxLength != NONE) mValidator = new MaxLengthValidator(mMinLength);
+        else if(mMaxLength != NONE) mValidator = new MaxLengthValidator(mMaxLength);
 
         // value
         if(mMaxValue != NONE && mMinValue != NONE) mValidator = new RangeValueValidator(mMinValue, mMaxValue);
@@ -172,6 +164,28 @@ public class InputValidator extends RelativeLayout {
         // custom messages
         if(mErrorMessage != null) mValidator.setErrorMessage(mErrorMessage);
         if(mRequiredMessage != null) mRequiredValidator.setErrorMessage(mRequiredMessage);
+
+        // mBuilt
+        mBuilt = true;
+    }
+
+    /**
+     * Get validator automatically according to EditText inputType
+     */
+    private void autoValidator() {
+        if(mEditText != null) {
+            switch (mEditText.getInputType()) {
+                case InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS:
+                    mValidatorNumber = IS_EMAIL;
+                    break;
+                case InputType.TYPE_CLASS_PHONE:
+                    mValidatorNumber = IS_PHONE_NUMBER;
+                    break;
+                case InputType.TYPE_CLASS_NUMBER:
+                    mValidatorNumber = IS_NUMERIC;
+                    break;
+            }
+        }
     }
 
     /**
@@ -180,7 +194,10 @@ public class InputValidator extends RelativeLayout {
      */
     private void getOtherEditText() {
         // get other edit text
-        if(mOtherEditTextId != NONE) {
+        if(mOtherEditText != null) {
+            mValidator = new IdenticalValidator(mOtherEditText);
+        }
+        else if(mOtherEditTextId != NONE) {
             mOtherEditText = (EditText) mEditText.getRootView().findViewById(mOtherEditTextId);
             mValidator = new IdenticalValidator(mOtherEditText);
         }
@@ -218,6 +235,10 @@ public class InputValidator extends RelativeLayout {
      * @return true of it is valid, false either
      */
     public boolean isValid() {
+        // build validator
+        if(!mBuilt)
+            buildValidator();
+
         String value = mEditText.getText().toString();
 
         // reset error
@@ -286,6 +307,10 @@ public class InputValidator extends RelativeLayout {
         this.mOtherEditTextId = mOtherEditTextId;
     }
 
+    public void setOtherEditText(EditText mOtherEditText) {
+        this.mOtherEditText = mOtherEditText;
+    }
+
     public void setErrorMessage(String mErrorMessage) {
         this.mErrorMessage = mErrorMessage;
     }
@@ -298,17 +323,18 @@ public class InputValidator extends RelativeLayout {
      * Builder class for InputValidator
      */
     public static class Builder {
-        Context context;
-        boolean required = false;
-        AbstractValidator validator = new ValidateValidator();
-        int validatorType = NONE;
-        int minLength = NONE, maxLength = NONE;
-        int minValue = NONE, maxValue = NONE;
-        String regex;
-        int otherEditTextId = NONE;
-        String errorMessage, requiredMessage;
-        boolean showError = true;
-        EditText editText;
+        private Context context;
+        private boolean required = false;
+        private AbstractValidator validator = new ValidateValidator();
+        private int validatorType = NONE;
+        private int minLength = NONE, maxLength = NONE;
+        private int minValue = NONE, maxValue = NONE;
+        private String regex;
+        private int otherEditTextId = NONE;
+        private EditText otherEditText;
+        private String errorMessage, requiredMessage;
+        private boolean showError = true;
+        private EditText editText;
 
         public Builder(Context context) {
             this.context = context;
@@ -417,6 +443,17 @@ public class InputValidator extends RelativeLayout {
         }
 
         /**
+         * Compare the field to another EditText so they have to be equals
+         *
+         * @param editText the other EditText
+         * @return the Builder
+         */
+        public Builder identicalAs(EditText editText) {
+            this.otherEditText = editText;
+            return this;
+        }
+
+        /**
          * Set a custom error message
          *
          * @param errorMessage the error message
@@ -487,6 +524,7 @@ public class InputValidator extends RelativeLayout {
         inputValidator.setMaxValue(builder.maxValue);
         inputValidator.setMinValue(builder.minValue);
         inputValidator.setRegex(builder.regex);
+        inputValidator.setOtherEditText(builder.otherEditText);
         inputValidator.setIdenticalAs(builder.otherEditTextId);
         inputValidator.setErrorMessage(builder.errorMessage);
         inputValidator.setRequiredMessage(builder.requiredMessage);

@@ -75,7 +75,7 @@
 
         </com.pchmn.formvalidator.InputValidator>
 
-        <!-- password -->
+        <!-- age -->
         <com.pchmn.formvalidator.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

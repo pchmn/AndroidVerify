@@ -1,4 +1,4 @@
-package com.pchmn.formvalidator.validators;
+package com.pchmn.formvalidator.validator;
 
 import com.pchmn.formvalidator.App;
 import com.pchmn.formvalidator.R;

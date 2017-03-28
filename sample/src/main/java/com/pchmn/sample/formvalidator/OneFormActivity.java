@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.pchmn.formvalidator.Form;
 import com.pchmn.formvalidator.InputValidator;
-import com.pchmn.formvalidator.validators.AbstractValidator;
+import com.pchmn.formvalidator.validator.AbstractValidator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

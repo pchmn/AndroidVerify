@@ -21,7 +21,7 @@ allprojects {
 In your app level build.gradle :
 ```java
 dependencies {
-    compile 'com.github.pchmn:RxSocialAuth:2.0.1-beta'
+    compile 'com.github.pchmn:FormValidator:1.0.1'
 }      
 ```
 
@@ -133,7 +133,7 @@ Attribute | Type | Description
 **regex** | `string` | Use a regex to validate a field
 **identicalAs** | `reference id` | The id of an EditText to which the field must be equal
 **errorMessage** | `string` | The message to display if the field is not valid
-**requiredMessage** | `string` | The message to display if the field is empty but was required
+**requiredMessage** | `string` | The message to display if the field is empty but was required. It implies that the field is required
 
 #### `Form`
 All the attributes that can be used with the `Form` view. They can be used in XML or in Java with setters :
@@ -254,7 +254,7 @@ It can be useful for these reasons :
 
         </com.pchmn.formvalidator.InputValidator>
 
-        <!-- password -->
+        <!-- age -->
         <com.pchmn.formvalidator.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -335,6 +335,7 @@ Method | Return value | Description
 --- | --- | ---
 **Form.Builder**(`Activity` activity) | `Form.Builder` | First constructor of the builder
 **Form.Builder**(`Context` context, `View` rootView) | `Form.Builder` | Second constructor of the builder
+**Form.Builder**(`Context` context) | `Form.Builder` | Third constructor of the builder. Be aware of possibly inflating errors using this constructor
 **addInputValidator**(`InputValidator` validator) | `Form.Builder` | Add an `InputValidator`
 **showErrors**(`boolean` show) | `Form.Builder` | Whether the errors must be shown on each EditText or not
 **build()** | `Form` | Create the `Form` object

@@ -1,4 +1,4 @@
-package com.pchmn.formvalidator.validators;
+package com.pchmn.formvalidator.validator;
 
 
 import com.pchmn.formvalidator.App;
@@ -9,6 +9,8 @@ public class MinLengthValidator extends AbstractValidator {
     private int mLength;
 
     public MinLengthValidator(int length) {
+        if(length < 0)
+            throw new IllegalArgumentException("You put a negative min length (" + length +")");
         mLength = length;
         mErrorMessage = App.getContext().getString(R.string.error_min_length, mLength);
     }

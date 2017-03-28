@@ -1,4 +1,4 @@
-package com.pchmn.formvalidator.validators;
+package com.pchmn.formvalidator.validator;
 
 
 import com.pchmn.formvalidator.App;
@@ -9,9 +9,12 @@ public class RangeValueValidator extends AbstractValidator {
     private int mMinValue, mMaxValue;
 
     public RangeValueValidator(int minValue, int maxValue) {
+        if(minValue > maxValue)
+            throw new IllegalArgumentException("The max value has to be superior or equal to the min value");
+
         mMinValue = minValue;
         mMaxValue = maxValue;
-        mErrorMessage = App.getContext().getString(R.string.error_invalid_number);
+        mErrorMessage = App.getContext().getString(R.string.error_range_value, mMinValue, mMaxValue);
     }
 
     @Override
@@ -22,6 +25,7 @@ public class RangeValueValidator extends AbstractValidator {
             return d >= mMinValue && d <= mMaxValue;
         }
         catch(NumberFormatException nfe) {
+            mErrorMessage = App.getContext().getString(R.string.error_invalid_number);
             return false;
         }
     }

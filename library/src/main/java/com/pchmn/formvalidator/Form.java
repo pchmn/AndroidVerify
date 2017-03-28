@@ -19,7 +19,7 @@ public class Form extends LinearLayout {
     private Activity mActivity;
     private ViewGroup mViewGroupRoot;
     // show errors
-    private boolean mShowErrors;
+    private boolean mShowErrors = true;
     // validity
     private boolean mIsValid;
     // input validators
@@ -115,6 +115,10 @@ public class Form extends LinearLayout {
         this.mShowErrors = mShowErrors;
     }
 
+    public void addInputValidator(InputValidator inputValidator) {
+        mInputValidatorList.add(inputValidator);
+    }
+
     public void setInputValidatorList(List<InputValidator> mInputValidatorList) {
         this.mInputValidatorList = mInputValidatorList;
     }
@@ -131,11 +135,11 @@ public class Form extends LinearLayout {
      * Builder class for Form
      */
     public static class Builder {
-        Activity activity;
-        Context context;
-        ViewGroup viewGroup;
-        boolean showErrors = true;
-        List<InputValidator> inputValidatorList = new ArrayList<>();
+        private Activity activity;
+        private Context context;
+        private ViewGroup viewGroup;
+        private boolean showErrors = true;
+        private List<InputValidator> inputValidatorList = new ArrayList<>();
 
         public Builder(Activity activity) {
             this.activity = activity;
@@ -144,6 +148,10 @@ public class Form extends LinearLayout {
         public Builder(Context context, View rootView) {
             this.context = context;
             this.viewGroup = (ViewGroup) rootView;
+        }
+
+        public Builder(Context context) {
+            this.context = context;
         }
 
         /**
@@ -190,9 +198,12 @@ public class Form extends LinearLayout {
             form = new Form(builder.activity);
             form.setActivity(builder.activity);
         }
-        else {
+        else if(builder.viewGroup != null) {
             form = new Form(builder.context);
             form.setViewGroupRoot(builder.viewGroup);
+        }
+        else {
+            form = new Form(builder.context);
         }
         form.setShowErrors(builder.showErrors);
         form.setInputValidatorList(builder.inputValidatorList);
