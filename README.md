@@ -1,8 +1,8 @@
-# FormValidator
+# AndroidVerify
 
 Android library designed for rapid and customizable form validation.
 
-[![Release](https://jitpack.io/v/pchmn/FormValidator.svg)](https://jitpack.io/#pchmn/FormValidator)
+[![Release](https://jitpack.io/v/pchmn/AndroidVerify.svg)](https://jitpack.io/#pchmn/AndroidVerify)
 
 ## Setup
 
@@ -21,13 +21,13 @@ allprojects {
 In your app level build.gradle :
 ```java
 dependencies {
-    compile 'com.github.pchmn:FormValidator:1.0.1'
+    compile 'com.github.pchmn:AndroidVerify:1.0.1'
 }      
 ```
 
 ## Usage
 
-You can use **FormValidator** with any `View` that extends the original [`EditText`](https://developer.android.com/reference/android/widget/EditText.html) (such as 
+You can use **AndroidVerify** with any `View` that extends the original [`EditText`](https://developer.android.com/reference/android/widget/EditText.html) (such as 
 [`MaterialEditText`](https://github.com/rengwuxian/MaterialEditText) for example).
 
 ### With XML
@@ -116,6 +116,7 @@ else {
 }
 ```
 
+You can create programmatically without using the Builders, but it is safer and quicker to use Builders.
 
 ### Attributes
 
@@ -319,6 +320,7 @@ Method | Return value | Description
 **maxValue**(`int` value) | `InputValidator.Builder` | The maximum value of the field (must be numeric)
 **regex**(`String` regex) | `InputValidator.Builder` | Use a regex to validate a field
 **identicalAs**(`int` id) | `InputValidator.Builder` | The id of an EditText to which the field must be equal
+**identicalAs**(`EditText` editText) | `InputValidator.Builder` | An other EditText to which the field must be equal
 **errorMessage**(`String` message) | `InputValidator.Builder` | The message to display if the field is not valid
 **requiredMessage**(`String` message) | `InputValidator.Builder` | The message to display if the field is empty but was required
 **build()** | `InputValidator` | Create the `InputValidator` object
