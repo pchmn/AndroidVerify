@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_invalid_email">Cet email n\'est pas valide</string>
+    <string name="error_invalid_ip">Cette adresse IP n\'est pas valide</string>
+    <string name="error_invalid_phone_number">Ce numéro de téléphone n\'est pas valide</string>
+    <string name="error_invalid_url">Cette url n\'est pas valide</string>
+    <string name="error_invalid_number">Ce n\'est pas un nombre</string>
+
+    <string name="error_min_length">Ce champ doit contenir %1$d caractères minimum</string>
+    <string name="error_max_length">Ce champ ne peut contenir que  %1$d caractères maximum</string>
+    <string name="error_range_length">Ce champ doit contenir entre %1$d et %2$d caractères</string>
+
+    <string name="error_min_value">Ce champ doit être supérieur à %1$d</string>
+    <string name="error_max_value">Ce champ doit être inférieur à %1$d</string>
+    <string name="error_range_value">Ce champ doit être compris entre %1$d et %2$d</string>
+
+    <string name="error_invalid_field">Ce champ n\'est pas valide</string>
+    <string name="error_field_required">Ce champ est requis</string>
+    <string name="error_fields_mismatch">Les deux champs sont différents</string>
+</resources>

@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FormValidator</string>
+    <string name="app_name" translatable="false">FormValidator</string>
 
     <string name="error_invalid_email">This email is not valid</string>
     <string name="error_invalid_ip">This IP address is not valid</string>
@@ -8,7 +9,7 @@
     <string name="error_invalid_number">This is not a number</string>
 
     <string name="error_min_length">This field must contain %1$d characters minimum</string>
-    <string name="error_max_length">This field must contain %1$d characters maximum</string>
+    <string name="error_max_length">This field can contain %1$d characters maximum</string>
     <string name="error_range_length">This field must contain between %1$d and %2$d characters</string>
 
     <string name="error_min_value">This field must be greater than %1$d</string>
