@@ -4,6 +4,9 @@ Android library designed for rapid and customizable form validation.
 
 [![Release](https://jitpack.io/v/pchmn/AndroidVerify.svg)](https://jitpack.io/#pchmn/AndroidVerify)
 
+## Demo
+[Download sample-v1.0.2.apk](https://github.com/pchmn/AndroidVerify/raw/master/docs/android-verify-v1.0.2.apk)
+
 ## Setup
 
 To use this library your `minSdkVersion` must be >= 15.
@@ -21,7 +24,7 @@ allprojects {
 In your app level build.gradle :
 ```java
 dependencies {
-    compile 'com.github.pchmn:AndroidVerify:1.0.1'
+    compile 'com.github.pchmn:AndroidVerify:1.0.2'
 }      
 ```
 
@@ -35,7 +38,7 @@ You can use **AndroidVerify** with any `View` that extends the original [`EditTe
 You just have to wrap your `EditText` with an `InputValidator` view. Example for an email and a custom regex :
 
 ```xml
-<com.pchmn.formvalidator.InputValidator
+<com.pchmn.androidverify.InputValidator
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:required="true"
@@ -47,9 +50,9 @@ You just have to wrap your `EditText` with an `InputValidator` view. Example for
         android:inputType="textEmailAddress"
         android:hint="Email"/>
 
-</com.pchmn.formvalidator.InputValidator>
+</com.pchmn.androidverify.InputValidator>
             
-<com.pchmn.formvalidator.InputValidator
+<com.pchmn.androidverify.InputValidator
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:regex="^[0-9]{4}$"
@@ -60,7 +63,7 @@ You just have to wrap your `EditText` with an `InputValidator` view. Example for
         android:layout_height="wrap_content"
         android:hint="Regex 4 digits (custom error msg)"/>
 
-</com.pchmn.formvalidator.InputValidator>            
+</com.pchmn.androidverify.InputValidator>            
 ```
 `InputValidator` will automatically recognized **textEmailAdress**, **phone** and **number** `inputType` and use the appropriate validator, like in the example with the email field.
 <br>If you don't specify an `errorMessage` or a `requiredMessage`, predefined messages will be shown if the field is not valid.
@@ -125,23 +128,23 @@ All the attributes that can be used with the `InputValidator` view. They can be 
 
 Attribute | Type | Description
 --- | --- | ---
-**required** | `boolean` | Whether the field is required or not
-**validator** | `enum` | Use a validator type predefined by FormValidator. You can use **isEmail**, **isPhoneNumber**, **isNumeric**, **isUrl** or **isIP**
-**minLength** | `int` | The minimum length of the field
-**maxLength** | `int` | The maximum length of the field
-**minValue** | `int` | The minimum value of the field (must be numeric)
-**maxValue** | `int` | The maximum value of the field (must be numeric)
-**regex** | `string` | Use a regex to validate a field
-**identicalAs** | `reference id` | The id of an EditText to which the field must be equal
-**errorMessage** | `string` | The message to display if the field is not valid
-**requiredMessage** | `string` | The message to display if the field is empty but was required. It implies that the field is required
+`app:required` | `boolean` | Whether the field is required or not
+`app:validator` | `enum` | Use a validator type predefined by FormValidator. You can use **isEmail**, **isPhoneNumber**, **isNumeric**, **isUrl** or **isIP**
+`app:minLength` | `int` | The minimum length of the field
+`app:maxLength` | `int` | The maximum length of the field
+`app:minValue` | `int` | The minimum value of the field (must be numeric)
+`app:maxValue` | `int` | The maximum value of the field (must be numeric)
+`app:regex` | `string` | Use a regex to validate a field
+`app:identicalAs` | `reference id` | The id of an EditText to which the field must be equal
+`app:errorMessage` | `string` | The message to display if the field is not valid
+`app:requiredMessage` | `string` | The message to display if the field is empty but was required. It implies that the field is required
 
 #### `Form`
 All the attributes that can be used with the `Form` view. They can be used in XML or in Java with setters :
 
 Attribute | Type | Default | Description
 --- | --- | --- | ---
-**showErrors** | `boolean` | `true` | Whether the errors must be shown on each EditText or not
+`app:showErrors` | `boolean` | `true` | Whether the errors must be shown on each EditText or not
 
 
 ## Advanced Usage
@@ -196,7 +199,7 @@ It can be useful for these reasons :
 #### XML
 ```xml
     <!-- form1 -->
-    <com.pchmn.formvalidator.Form
+    <com.pchmn.androidverify.Form
         android:id="@+id/form1"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -204,7 +207,7 @@ It can be useful for these reasons :
         app:showErrors="false">
 
         <!-- email -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -214,10 +217,10 @@ It can be useful for these reasons :
                 android:inputType="textEmailAddress"
                 android:hint="Email"/>
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
         <!-- password -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:required="true"
@@ -229,20 +232,20 @@ It can be useful for these reasons :
                 android:inputType="textPassword"
                 android:hint="Password (6 char. min) *" />
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
-    </com.pchmn.formvalidator.Form>
+    </com.pchmn.androidverify.Form>
     <!-- /form1 -->
 
     <!-- form2 -->
-    <com.pchmn.formvalidator.Form
+    <com.pchmn.androidverify.Form
         android:id="@+id/form2"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <!-- phone number -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:required="true">
@@ -253,10 +256,10 @@ It can be useful for these reasons :
                 android:inputType="phone"
                 android:hint="Phone number *"/>
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
         <!-- age -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:minValue="12">
@@ -267,9 +270,9 @@ It can be useful for these reasons :
                 android:inputType="number"
                 android:hint="Age (12 min)" />
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
-    </com.pchmn.formvalidator.Form>
+    </com.pchmn.androidverify.Form>
     <!-- /form2 -->
 ```
 
@@ -309,21 +312,21 @@ InputValidator inputValidator = new InputValidator.Builder(this)
 
 Method | Return value | Description
 --- | --- | ---
-**InputValidator.Builder**(`Context` context) | `InputValidator.Builder` | The constructor of the builder
-**on**(`EditText` editText) | `InputValidator.Builder` | The EditText to validate
-**required**(`boolean` required) | `InputValidator.Builder` | Whether the field is required or not
-**validatorType**(`int` type) | `InputValidator.Builder` | Use a validator type predefined by FormValidator. You can use **InputValidator.IS_EMAIL**, **InputValidator.IS_PHONE_NUMBER**, **InputValidator.IS_NUMERIC**, **InputValidator.IS_URL** or **InputValidator.IS_IP**
-**customValidator**(`AbstractValidator` validator) | `InputValidator.Builder` | Use a custom validator
-**minLength**(`int` length) | `InputValidator.Builder` | The minimum length of the field
-**maxLength**(`int` length) | `InputValidator.Builder` | The maximum length of the field
-**minValue**(`int` value) | `InputValidator.Builder` | The minimum value of the field (must be numeric)
-**maxValue**(`int` value) | `InputValidator.Builder` | The maximum value of the field (must be numeric)
-**regex**(`String` regex) | `InputValidator.Builder` | Use a regex to validate a field
-**identicalAs**(`int` id) | `InputValidator.Builder` | The id of an EditText to which the field must be equal
-**identicalAs**(`EditText` editText) | `InputValidator.Builder` | An other EditText to which the field must be equal
-**errorMessage**(`String` message) | `InputValidator.Builder` | The message to display if the field is not valid
-**requiredMessage**(`String` message) | `InputValidator.Builder` | The message to display if the field is empty but was required
-**build()** | `InputValidator` | Create the `InputValidator` object
+`InputValidator.Builder(Context context)` | `InputValidator.Builder` | The constructor of the builder
+`on(EditText editText)` | `InputValidator.Builder` | The EditText to validate
+`required(boolean required)` | `InputValidator.Builder` | Whether the field is required or not
+`validatorType(int type)` | `InputValidator.Builder` | Use a validator type predefined by FormValidator. You can use **InputValidator.IS_EMAIL**, **InputValidator.IS_PHONE_NUMBER**, **InputValidator.IS_NUMERIC**, **InputValidator.IS_URL** or **InputValidator.IS_IP**
+`customValidator(AbstractValidator validator)` | `InputValidator.Builder` | Use a custom validator
+`minLength(int length)` | `InputValidator.Builder` | The minimum length of the field
+`maxLength(int length)` | `InputValidator.Builder` | The maximum length of the field
+`minValue(int value)` | `InputValidator.Builder` | The minimum value of the field (must be numeric)
+`maxValue(int value)` | `InputValidator.Builder` | The maximum value of the field (must be numeric)
+`regex(String regex)` | `InputValidator.Builder` | Use a regex to validate a field
+`identicalAs(int id)` | `InputValidator.Builder` | The id of an EditText to which the field must be equal
+`identicalAs`(EditText editText)` | `InputValidator.Builder` | An other EditText to which the field must be equal
+`errorMessage(String message)` | `InputValidator.Builder` | The message to display if the field is not valid
+`requiredMessage(String message)` | `InputValidator.Builder` | The message to display if the field is empty but was required
+`build()` | `InputValidator` | Create the `InputValidator` object
 
 #### `Form` builder
 
@@ -335,12 +338,12 @@ Form form = new Form.Builder(this)
 
 Method | Return value | Description
 --- | --- | ---
-**Form.Builder**(`Activity` activity) | `Form.Builder` | First constructor of the builder
-**Form.Builder**(`Context` context, `View` rootView) | `Form.Builder` | Second constructor of the builder
-**Form.Builder**(`Context` context) | `Form.Builder` | Third constructor of the builder. Be aware of possibly inflating errors using this constructor
-**addInputValidator**(`InputValidator` validator) | `Form.Builder` | Add an `InputValidator`
-**showErrors**(`boolean` show) | `Form.Builder` | Whether the errors must be shown on each EditText or not
-**build()** | `Form` | Create the `Form` object
+`Form.Builder(Activity activity)` | `Form.Builder` | First constructor of the builder
+`Form.Builder**(Context context, View rootView)` | `Form.Builder` | Second constructor of the builder
+`Form.Builder(Context context)` | `Form.Builder` | Third constructor of the builder. Be aware of possibly inflating errors using this constructor
+`addInputValidator(InputValidator validator)` | `Form.Builder` | Add an `InputValidator`
+`showErrors(boolean show)` | `Form.Builder` | Whether the errors must be shown on each EditText or not
+`build()` | `Form` | Create the `Form` object
 
 ## Sample
 

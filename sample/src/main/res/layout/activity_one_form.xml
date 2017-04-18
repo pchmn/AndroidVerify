@@ -19,7 +19,7 @@
             android:padding="16dp">
 
             <!-- custom required message -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:requiredMessage="Please enter a value">
@@ -29,10 +29,10 @@
                     android:layout_height="wrap_content"
                     android:hint="Custom required message *"/>
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- email -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -42,10 +42,10 @@
                     android:inputType="textEmailAddress"
                     android:hint="Email"/>
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- phone number -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:required="true">
@@ -56,10 +56,10 @@
                     android:inputType="phone"
                     android:hint="Phone number *"/>
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- number -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -69,10 +69,10 @@
                     android:inputType="number"
                     android:hint="Number"/>
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- regex -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:regex="^[0-9]{4}$"
@@ -83,10 +83,10 @@
                     android:layout_height="wrap_content"
                     android:hint="Regex 4 digits (custom error msg)"/>
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- password -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:required="true">
@@ -98,10 +98,10 @@
                     android:inputType="textPassword"
                     android:hint="Password *" />
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- confirm password -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:required="true"
@@ -113,10 +113,10 @@
                     android:inputType="textPassword"
                     android:hint="Confirm password *"/>
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- 6 characters min -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:minLength="6">
@@ -126,10 +126,10 @@
                     android:layout_height="wrap_content"
                     android:hint="At least 6 characters long" />
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- between 2 and 8 characters -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:minLength="2"
@@ -140,10 +140,10 @@
                     android:layout_height="wrap_content"
                     android:hint="Between 2 and 8 characters" />
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- between 15 and 50 -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:minValue="15"
@@ -155,10 +155,10 @@
                     android:inputType="number"
                     android:hint="Between 15 and 50 (value)" />
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- between 15 and 50 -->
-            <com.pchmn.formvalidator.InputValidator
+            <com.pchmn.androidverify.InputValidator
                 android:id="@+id/custom_validator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Custom validator (== 'ok man') *" />
 
-            </com.pchmn.formvalidator.InputValidator>
+            </com.pchmn.androidverify.InputValidator>
 
             <!-- submit button -->
             <Button

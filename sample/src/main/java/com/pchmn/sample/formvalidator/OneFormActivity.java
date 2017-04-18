@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.pchmn.formvalidator.Form;
-import com.pchmn.formvalidator.InputValidator;
-import com.pchmn.formvalidator.validator.AbstractValidator;
+import com.pchmn.androidverify.Form;
+import com.pchmn.androidverify.InputValidator;
+import com.pchmn.androidverify.validator.AbstractValidator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

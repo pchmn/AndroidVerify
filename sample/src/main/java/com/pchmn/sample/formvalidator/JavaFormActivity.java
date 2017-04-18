@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.pchmn.formvalidator.Form;
-import com.pchmn.formvalidator.InputValidator;
+import com.pchmn.androidverify.Form;
+import com.pchmn.androidverify.InputValidator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

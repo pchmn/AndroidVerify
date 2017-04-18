@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.pchmn.formvalidator.Form;
+import com.pchmn.androidverify.Form;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -7,7 +7,7 @@
     tools:context="com.pchmn.sample.formvalidator.TwoFormsActivity">
 
     <!-- form1 -->
-    <com.pchmn.formvalidator.Form
+    <com.pchmn.androidverify.Form
         android:id="@+id/form1"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         android:padding="16dp">
 
         <!-- email -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -25,10 +25,10 @@
                 android:inputType="textEmailAddress"
                 android:hint="Email"/>
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
         <!-- password -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:required="true"
@@ -40,7 +40,7 @@
                 android:inputType="textPassword"
                 android:hint="Password (6 char. min) *" />
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
         <!-- submit form -->
         <Button
@@ -49,11 +49,11 @@
             android:layout_height="wrap_content"
             android:text="Validate form1"/>
 
-    </com.pchmn.formvalidator.Form>
+    </com.pchmn.androidverify.Form>
     <!-- /form1 -->
 
     <!-- form2 -->
-    <com.pchmn.formvalidator.Form
+    <com.pchmn.androidverify.Form
         android:id="@+id/form2"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -62,7 +62,7 @@
         android:padding="16dp">
 
         <!-- phone number -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:required="true">
@@ -73,10 +73,10 @@
                 android:inputType="phone"
                 android:hint="Phone number *"/>
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
         <!-- age -->
-        <com.pchmn.formvalidator.InputValidator
+        <com.pchmn.androidverify.InputValidator
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:minValue="12">
@@ -87,7 +87,7 @@
                 android:inputType="number"
                 android:hint="Age (12 min)" />
 
-        </com.pchmn.formvalidator.InputValidator>
+        </com.pchmn.androidverify.InputValidator>
 
         <!-- submit form -->
         <Button
@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:text="Validate form2"/>
 
-    </com.pchmn.formvalidator.Form>
+    </com.pchmn.androidverify.Form>
     <!-- /form2 -->
 
 </RelativeLayout>

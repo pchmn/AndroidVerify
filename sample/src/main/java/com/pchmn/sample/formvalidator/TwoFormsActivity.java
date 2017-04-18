@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.pchmn.formvalidator.Form;
+import com.pchmn.androidverify.Form;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

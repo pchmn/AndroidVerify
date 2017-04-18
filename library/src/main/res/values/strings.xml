@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">FormValidator</string>
+    <string name="app_name" translatable="false">AndroidVerify</string>
 
     <string name="error_invalid_email">This email is not valid</string>
     <string name="error_invalid_ip">This IP address is not valid</string>
